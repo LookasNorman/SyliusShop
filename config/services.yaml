@@ -32,7 +32,7 @@ services:
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
         resource: '../src/Controller'
-        tags: ['controller.service_arguments']
+        tags: [ 'controller.service_arguments' ]
 
     App\Context\LocaleChannelContext:
         arguments:
@@ -40,3 +40,11 @@ services:
         tags:
             - { name: sylius.context.channel, priority: 1000 }
 
+    App\Listener\CreditOrderListener:
+        arguments:
+            - '@App\Checker\CreditCustomerCheckerInterface'
+            - '@sm.factory'
+            - '@sylius.repository.payment_method'
+            - '@sylius.manager.order'
+        tags:
+            - { name: kernel.event_listener, event: sylius.order.post_select_shipping , method: acceptForCreditCustomerGroup }
