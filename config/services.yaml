@@ -48,3 +48,9 @@ services:
             - '@sylius.manager.order'
         tags:
             - { name: kernel.event_listener, event: sylius.order.post_select_shipping , method: acceptForCreditCustomerGroup }
+
+    app.form.extension.product_type_extension:
+        class: App\Form\Extension\ProductTypeExtension
+        tags: {
+                  name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType
+        }
