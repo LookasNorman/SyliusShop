@@ -1,0 +1,39 @@
+sylius_fixtures:
+    suites:
+        default: # this key is always called whenever the sylius:fixtures:load command is called, below we are extending it with new fixtures
+            fixtures:
+                channel:
+                    options:
+                        custom:
+                            pl_web_store: # creating new channel
+                                name: "PL Web Store"
+                                code: "LOOKAS"
+                                locales:
+                                    - "pl_PL"
+                                currencies:
+                                    - "PLN"
+                                enabled: true
+                                hostname: "localhost"
+                                contact_email: "lookas@example.com"
+                                contact_phone_number: "+48 74 123 45 67"
+                shipping_method:
+                    options:
+                        custom:
+                            ups:
+                                channels:
+                                    - "LOOKAS"
+                            dhl_express:
+                                channels:
+                                    - "LOOKAS"
+                            fedex:
+                                channels:
+                                    - "LOOKAS"
+                payment_method:
+                    options:
+                        custom:
+                            bank_transfer:
+                                channels:
+                                    - "LOOKAS"
+                            cash_on_delivery:
+                                channels:
+                                    - "LOOKAS"
