@@ -1,4 +1,6 @@
 <div class="ui basic segment">
     <p>{{ product.shortDescription }}</p>
-    <p>{{ product.color }}</p>
+    <p>
+        {% trans %}sylius.ui.color{% endtrans %} <span class="ui medium empty label" style="background-color: {{ product.color }}"></span>
+    </p>
 </div>
