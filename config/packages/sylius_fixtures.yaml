@@ -1,6 +1,6 @@
 sylius_fixtures:
     suites:
-        default: # this key is always called whenever the sylius:fixtures:load command is called, below we are extending it with new fixtures
+        new_channel:
             fixtures:
                 channel:
                     options:
